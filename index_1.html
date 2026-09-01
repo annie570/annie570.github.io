@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ann Okwach | Cybersecurity Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy:    #0a192f;
+      --navy2:   #112240;
+      --steel:   #1d4ed8;
+      --accent:  #64ffda;
+      --text:    #ccd6f6;
+      --muted:   #8892b0;
+      --white:   #e6f1ff;
+      --card:    #112240;
+      --border:  #233554;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10,25,47,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-links span {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-right: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 2rem;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 120px;
+    }
+
+    .hero-greeting {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.5rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      padding: 0.8rem 1.8rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: rgba(100,255,218,0.1);
+    }
+
+    .btn-secondary {
+      padding: 0.8rem 1.8rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── SECTION HEADINGS ── */
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .section-heading .num {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-right: -0.5rem;
+    }
+
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .about-text p a { color: var(--accent); text-decoration: none; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-item {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-item::before {
+      content: '▹';
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .about-image-wrapper {
+      position: relative;
+    }
+
+    .about-image-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .about-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--steel), var(--accent));
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    .about-image-box h3 {
+      color: var(--white);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-image-box p {
+      color: var(--accent);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+    }
+
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .badge {
+      background: rgba(100,255,218,0.1);
+      border: 1px solid rgba(100,255,218,0.3);
+      color: var(--accent);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--border);
+      position: relative;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -5px; top: 6px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-role {
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .exp-company {
+      color: var(--accent);
+    }
+
+    .exp-date {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .exp-bullets li {
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .exp-bullets li::before {
+      content: '▹';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.8rem;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-icon { color: var(--accent); font-size: 1.8rem; }
+
+    .project-links { display: flex; gap: 0.8rem; }
+
+    .project-links a {
+      color: var(--muted);
+      font-size: 1rem;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+
+    .project-links a:hover { color: var(--accent); }
+
+    .project-card h3 {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .cert-card:hover { border-color: var(--accent); }
+
+    .cert-icon {
+      width: 42px; height: 42px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .cert-icon.ms { background: rgba(0,120,212,0.2); color: #0078d4; }
+    .cert-icon.google { background: rgba(66,133,244,0.2); color: #4285f4; }
+    .cert-icon.ibm { background: rgba(0,62,135,0.2); color: #006fba; }
+    .cert-icon.cisco { background: rgba(0,115,207,0.2); color: #0073cf; }
+    .cert-icon.other { background: rgba(100,255,218,0.1); color: var(--accent); }
+
+    .cert-info h4 {
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-info p {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+
+    .edu-card:hover { border-color: var(--accent); }
+
+    .edu-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .edu-info h4 { color: var(--white); font-weight: 600; margin-bottom: 0.2rem; }
+    .edu-info .edu-school { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .edu-info .edu-date {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+
+    .contact-intro {
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+    .contact-link i { font-size: 1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── SOCIAL SIDEBAR ── */
+    .social-sidebar {
+      position: fixed;
+      bottom: 0; left: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .social-sidebar a {
+      color: var(--muted);
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .social-sidebar a:hover { color: var(--accent); transform: translateY(-3px); }
+
+    .social-sidebar::after {
+      content: '';
+      width: 1px;
+      height: 80px;
+      background: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .social-sidebar { display: none; }
+      .exp-header { flex-direction: column; }
+    }
+
+    /* ── SPEAKING ── */
+    .webinar-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .webinar-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .webinar-video {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .webinar-video iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .webinar-video .play-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .webinar-video .play-overlay:hover { background: rgba(0,0,0,0.3); }
+
+    .play-btn {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-size: 1.6rem;
+      transition: transform 0.2s;
+    }
+
+    .play-overlay:hover .play-btn { transform: scale(1.1); }
+
+    .webinar-body { padding: 1.8rem; }
+
+    .webinar-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .webinar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .badge-speaker {
+      background: rgba(100,255,218,0.15);
+      border: 1px solid rgba(100,255,218,0.4);
+      color: var(--accent);
+    }
+
+    .badge-date {
+      background: rgba(29,78,216,0.2);
+      border: 1px solid rgba(29,78,216,0.4);
+      color: #93c5fd;
+    }
+
+    .badge-org {
+      background: rgba(139,92,246,0.2);
+      border: 1px solid rgba(139,92,246,0.4);
+      color: #c4b5fd;
+    }
+
+    .webinar-body h3 {
+      color: var(--white);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .webinar-body p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .webinar-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .webinar-topic {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+    }
+
+    .webinar-topic i { color: var(--accent); font-size: 0.75rem; }
+
+    .webinar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid rgba(100,255,218,0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .webinar-link:hover {
+      background: rgba(100,255,218,0.1);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">&lt;ann-okwach /&gt;</a>
+  <ul class="nav-links">
+    <li><a href="#about"><span>01.</span>About</a></li>
+    <li><a href="#experience"><span>02.</span>Experience</a></li>
+    <li><a href="#projects"><span>03.</span>Projects</a></li>
+    <li><a href="#certifications"><span>04.</span>Certifications</a></li>
+    <li><a href="#speaking"><span>05.</span>Speaking</a></li>
+    <li><a href="#contact"><span>06.</span>Contact</a></li>
+  </ul>
+</nav>
+
+<!-- SOCIAL SIDEBAR -->
+<div class="social-sidebar">
+  <a href="https://github.com/annie570" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+  <a href="https://linkedin.com/in/annie-okwach-651a3b1a1" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  <a href="mailto:okwachannie@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-greeting">Hi, my name is</p>
+  <h1 class="hero-name">Ann Okwach.</h1>
+  <h2 class="hero-title">I secure digital systems.</h2>
+  <p class="hero-desc">
+    I'm a cybersecurity professional based in Nairobi, Kenya, specialising in
+    Identity & Access Management, SOC analysis, and cloud security. I help
+    organisations protect their systems, data, and people.
+  </p>
+  <div class="hero-buttons">
+    <a href="#projects" class="btn-primary">View My Projects</a>
+    <a href="#contact" class="btn-secondary">Get In Touch</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-heading">
+    <span class="num">01.</span>
+    <h2>About Me</h2>
+  </div>
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>
+        I'm an aspiring cybersecurity professional with hands-on experience in
+        IT support, identity management, and security operations. My journey
+        into cybersecurity started through IT support roles where I discovered
+        a passion for protecting systems and solving complex security challenges.
+      </p>
+      <p>
+        I've had the opportunity to work with Microsoft security tools including
+        <a href="#">Entra ID</a>, <a href="#">Microsoft Sentinel</a>, and
+        <a href="#">Microsoft Defender</a>, and I'm actively building deeper
+        skills in cloud security and SOC operations.
+      </p>
+      <p>
+        I'm currently pursuing a <a href="#">BSc in Cybersecurity and Digital
+        Forensics</a> at the Open University of Kenya, and I'm seeking junior
+        roles in IAM, SOC analysis, or cloud security where I can grow and
+        contribute meaningfully.
+      </p>
+      <p>Here are some technologies I've been working with:</p>
+      <div class="skills-grid">
+        <span class="skill-item">Microsoft Entra ID</span>
+        <span class="skill-item">Microsoft Sentinel</span>
+        <span class="skill-item">Active Directory</span>
+        <span class="skill-item">Microsoft Defender</span>
+        <span class="skill-item">KQL (SIEM queries)</span>
+        <span class="skill-item">Azure / AZ-900</span>
+        <span class="skill-item">Wireshark</span>
+        <span class="skill-item">Nmap</span>
+        <span class="skill-item">PowerShell</span>
+        <span class="skill-item">VLAN / Firewall design</span>
+        <span class="skill-item">SIEM / IDS / IPS</span>
+        <span class="skill-item">PCI DSS / GDPR</span>
+      </div>
+    </div>
+    <div class="about-image-wrapper">
+      <div class="about-image-box">
+        <div class="about-avatar">👩‍💻</div>
+        <h3>Ann Okwach</h3>
+        <p>Cybersecurity Professional</p>
+        <div class="about-badges">
+          <span class="badge">Nairobi, Kenya</span>
+          <span class="badge">IAM</span>
+          <span class="badge">SOC</span>
+          <span class="badge">Cloud Security</span>
+          <span class="badge">Open to work</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-heading">
+    <span class="num">02.</span>
+    <h2>Experience</h2>
+  </div>
+
+  <div class="fade-in">
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Webinar Speaker — Microsoft Technology Expert</div>
+          <div class="exp-company">@ Expervia Technologies (ETEN)</div>
+        </div>
+        <div class="exp-date">August 2026</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Invited as featured speaker and Microsoft Technology Expert for Expervia Technologies' webinar on Identity, Security & Compliance in Microsoft 365</li>
+        <li>Delivered a practical session to IT professionals, security leaders, and Microsoft 365 administrators on strengthening organisational security posture</li>
+        <li>Covered Microsoft Entra ID, Conditional Access, Multi-Factor Authentication, Microsoft Defender, and security best practices</li>
+        <li>Engaged an audience of professionals across multiple countries on real-world cloud identity and compliance strategies</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Cybersecurity & IT Support Intern</div>
+          <div class="exp-company">@ TCS Denmark</div>
+        </div>
+        <div class="exp-date">Jan 2025 – Sep 2025</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Managed frontline IT support and incident triage, handling service desk requests across the organisation</li>
+        <li>Administered Microsoft Entra ID (Azure AD) — user provisioning, RBAC, MFA enforcement, and offboarding</li>
+        <li>Monitored security events and alerts using Microsoft Sentinel SIEM with KQL queries</li>
+        <li>Performed network diagnostics using Wireshark, Nmap, and PowerShell</li>
+        <li>Delivered internal IT training sessions and maintained compliance-supporting incident records</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Technical Support Assistant</div>
+          <div class="exp-company">@ Caritas Denmark</div>
+        </div>
+        <div class="exp-date">Oct 2023 – Dec 2024</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Provided first-line hardware support for Windows, macOS, mobile, and printer systems</li>
+        <li>Troubleshot LAN, WAN, and Wi-Fi connectivity issues across the organisation</li>
+        <li>Managed ICT asset inventory and conducted hardware audits</li>
+        <li>Administered Active Directory accounts and configured devices for remote users</li>
+        <li>Supported tool consolidation and data migration projects</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Office Administrator</div>
+          <div class="exp-company">@ Desire Recovery Auctioneers</div>
+        </div>
+        <div class="exp-date">Feb 2021 – Aug 2022</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Provided basic IT troubleshooting and hardware support across the office</li>
+        <li>Maintained business documentation, records, and inter-departmental communications</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-heading">
+    <span class="num">03.</span>
+    <h2>Projects</h2>
+  </div>
+
+  <div class="projects-grid fade-in">
+
+    <a class="project-card" href="https://github.com/annie570/google-it-support-portfolio/tree/main/it-consultation-reviews/network-funtime-it-review" target="_blank">
+      <div class="project-top">
+        <div class="project-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="project-links">
+          <a href="https://github.com/annie570/google-it-support-portfolio" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <h3>IT Infrastructure Consultation Reviews</h3>
+      <p>IT infrastructure assessments for three organisations covering systems administration, VLAN segmentation, firewall rules, MDM, cloud migration, and helpdesk ticketing improvements.</p>
+      <div class="project-tags">
+        <span class="tag">Systems Admin</span>
+        <span class="tag">VLAN</span>
+        <span class="tag">MDM</span>
+        <span class="tag">Active Directory</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/annie570/google-it-support-portfolio/tree/main/it-consultation-reviews/artisan-widget-security-design" target="_blank">
+      <div class="project-top">
+        <div class="project-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="project-links">
+          <a href="https://github.com/annie570/google-it-support-portfolio" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <h3>Security Infrastructure Design</h3>
+      <p>Full security infrastructure design for a 50-person e-commerce retailer covering PCI DSS compliance, WAF, firewall rules, WireGuard VPN, SIEM, intrusion detection, and security policies.</p>
+      <div class="project-tags">
+        <span class="tag">PCI DSS</span>
+        <span class="tag">SIEM</span>
+        <span class="tag">IDS/IPS</span>
+        <span class="tag">Firewall</span>
+        <span class="tag">VPN</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/annie570/mfa-sso-implementation" target="_blank">
+      <div class="project-top">
+        <div class="project-icon"><i class="fas fa-key"></i></div>
+        <div class="project-links">
+          <a href="https://github.com/annie570/mfa-sso-implementation" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <h3>MFA & SSO Implementation</h3>
+      <p>Designed and documented a full MFA and SSO implementation for a 200-person organisation covering IdP selection, SAML/OIDC integration, Conditional Access policies, and Privileged Identity Management.</p>
+      <div class="project-tags">
+        <span class="tag">Entra ID</span>
+        <span class="tag">MFA</span>
+        <span class="tag">SSO</span>
+        <span class="tag">SAML</span>
+        <span class="tag">Zero Trust</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/annie570/Designing-IAM-Solution" target="_blank">
+      <div class="project-top">
+        <div class="project-icon"><i class="fas fa-user-shield"></i></div>
+        <div class="project-links">
+          <a href="https://github.com/annie570/Designing-IAM-Solution" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <h3>IAM Solution Design</h3>
+      <p>Identity and Access Management solution design covering role-based access control, user lifecycle management, and identity governance frameworks.</p>
+      <div class="project-tags">
+        <span class="tag">IAM</span>
+        <span class="tag">RBAC</span>
+        <span class="tag">Identity Governance</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/annie570/Windows-IT-Support-Home-Lab" target="_blank">
+      <div class="project-top">
+        <div class="project-icon"><i class="fab fa-windows"></i></div>
+        <div class="project-links">
+          <a href="https://github.com/annie570/Windows-IT-Support-Home-Lab" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <h3>Windows IT Support Home Lab</h3>
+      <p>Hands-on Windows IT support lab covering Active Directory administration, Group Policy, user management, and common IT support scenarios in a virtualised environment.</p>
+      <div class="project-tags">
+        <span class="tag">Windows Server</span>
+        <span class="tag">Active Directory</span>
+        <span class="tag">Group Policy</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/annie570/google-it-support-portfolio" target="_blank">
+      <div class="project-top">
+        <div class="project-icon"><i class="fab fa-google"></i></div>
+        <div class="project-links">
+          <a href="https://github.com/annie570/google-it-support-portfolio" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <h3>Google IT Support Portfolio</h3>
+      <p>Comprehensive portfolio from the Google IT Support Professional Certificate covering networking, operating systems, system administration, and cybersecurity fundamentals.</p>
+      <div class="project-tags">
+        <span class="tag">Networking</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Troubleshooting</span>
+        <span class="tag">Security</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-heading">
+    <span class="num">04.</span>
+    <h2>Certifications</h2>
+  </div>
+
+  <div class="certs-grid fade-in">
+
+    <div class="cert-card">
+      <div class="cert-icon ms"><i class="fab fa-microsoft"></i></div>
+      <div class="cert-info">
+        <h4>SC-900</h4>
+        <p>Microsoft Security, Compliance & Identity Fundamentals</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon ms"><i class="fab fa-microsoft"></i></div>
+      <div class="cert-info">
+        <h4>AZ-900</h4>
+        <p>Microsoft Azure Fundamentals</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon google"><i class="fab fa-google"></i></div>
+      <div class="cert-info">
+        <h4>Google IT Support</h4>
+        <p>Professional Certificate — Coursera</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon google"><i class="fab fa-google"></i></div>
+      <div class="cert-info">
+        <h4>Google Cybersecurity</h4>
+        <p>Professional Certificate — In Progress</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon ibm"><i class="fas fa-cube"></i></div>
+      <div class="cert-info">
+        <h4>IBM Cybersecurity Fundamentals</h4>
+        <p>IBM — Coursera</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon cisco"><i class="fas fa-network-wired"></i></div>
+      <div class="cert-info">
+        <h4>Cisco Credentials</h4>
+        <p>Networking & Cybersecurity</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon other"><i class="fas fa-project-diagram"></i></div>
+      <div class="cert-info">
+        <h4>CAPM</h4>
+        <p>Certified Associate in Project Management — PMI</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon other"><i class="fas fa-graduation-cap"></i></div>
+      <div class="cert-info">
+        <h4>Cybersecurity Summer School</h4>
+        <p>Campfire Security Denmark — Aug 2025</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+  <br/><br/>
+  <div class="section-heading">
+    <h2 style="color:var(--white); font-size:1.3rem;">Education</h2>
+  </div>
+
+  <div class="edu-grid fade-in">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-info">
+        <h4>BSc Cybersecurity and Digital Forensics</h4>
+        <div class="edu-school">Open University of Kenya</div>
+        <div class="edu-date">Apr 2026 – Present</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🛡️</div>
+      <div class="edu-info">
+        <h4>Cybersecurity Scholarship Programme</h4>
+        <div class="edu-school">MediaCrest Training College</div>
+        <div class="edu-date">Jan 2026 – Jun 2026</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">📜</div>
+      <div class="edu-info">
+        <h4>Diploma in Cybersecurity</h4>
+        <div class="edu-school">Alison</div>
+        <div class="edu-date">Feb 2025 – Mar 2025</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🏫</div>
+      <div class="edu-info">
+        <h4>Bachelor of Business Management</h4>
+        <div class="edu-school">Moi University</div>
+        <div class="edu-date">Sep 2014 – Dec 2020</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKING -->
+<section id="speaking">
+  <div class="section-heading">
+    <span class="num">05.</span>
+    <h2>Speaking & Webinars</h2>
+  </div>
+
+  <div class="fade-in">
+    <div class="webinar-card">
+
+      <!-- VIDEO EMBED -->
+      <div class="webinar-video">
+        <iframe
+          src="https://drive.google.com/file/d/1Zli1ZXGUHxSTc2IYEDEcpwu6mCchgKSn/preview"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- WEBINAR DETAILS -->
+      <div class="webinar-body">
+        <div class="webinar-meta">
+          <span class="webinar-badge badge-speaker">
+            <i class="fas fa-microphone"></i> Speaker
+          </span>
+          <span class="webinar-badge badge-org">
+            <i class="fas fa-building"></i> Expervia Technologies
+          </span>
+          <span class="webinar-badge badge-date">
+            <i class="fas fa-calendar"></i> 20 August 2026
+          </span>
+        </div>
+
+        <h3>Identity, Security & Compliance in Microsoft 365</h3>
+
+        <p>
+          Invited as a <strong style="color:var(--accent)">Microsoft Technology Expert</strong>
+          by Expervia Technologies to deliver a practical webinar on how organisations can
+          strengthen identity, secure access, and improve compliance across Microsoft 365.
+          The session was attended by IT professionals, security leaders, and Microsoft 365
+          administrators seeking to strengthen their organisation's security posture.
+        </p>
+
+        <div class="webinar-topics">
+          <span class="webinar-topic"><i class="fas fa-check"></i> Microsoft Entra ID</span>
+          <span class="webinar-topic"><i class="fas fa-check"></i> Conditional Access</span>
+          <span class="webinar-topic"><i class="fas fa-check"></i> Multi-Factor Authentication</span>
+          <span class="webinar-topic"><i class="fas fa-check"></i> Microsoft Defender</span>
+          <span class="webinar-topic"><i class="fas fa-check"></i> Security Best Practices</span>
+          <span class="webinar-topic"><i class="fas fa-check"></i> Microsoft 365 Compliance</span>
+        </div>
+
+        <a href="https://drive.google.com/file/d/1Zli1ZXGUHxSTc2IYEDEcpwu6mCchgKSn/view" target="_blank" class="webinar-link">
+          <i class="fas fa-play-circle"></i> Watch Full Recording
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-heading" style="justify-content:center;">
+    <span class="num">06.</span>
+    <h2>Get In Touch</h2>
+  </div>
+  <p class="contact-intro">
+    I'm currently open to new opportunities in cybersecurity and IT.
+    Whether you have a role, a question, or just want to connect —
+    my inbox is always open!
+  </p>
+  <a href="mailto:okwachannie@gmail.com" class="btn-primary">
+    Say Hello <i class="fas fa-paper-plane" style="margin-left:8px;"></i>
+  </a>
+  <div class="contact-links">
+    <a href="https://github.com/annie570" target="_blank" class="contact-link">
+      <i class="fab fa-github"></i> github.com/annie570
+    </a>
+    <a href="https://linkedin.com/in/annie-okwach-651a3b1a1" target="_blank" class="contact-link">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="mailto:okwachannie@gmail.com" class="contact-link">
+      <i class="fas fa-envelope"></i> okwachannie@gmail.com
+    </a>
+    <a href="tel:+254141085116" class="contact-link">
+      <i class="fas fa-phone"></i> +254 141 085 116
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Designed & Built by <a href="#">Ann Okwach</a></p>
+  <p style="margin-top:0.5rem; font-size:0.72rem;">
+    <a href="https://github.com/annie570/annie570.github.io" target="_blank">View source on GitHub</a>
+  </p>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav link highlight
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      if (link.getAttribute('href') === `#${current}`) {
+        link.style.color = 'var(--accent)';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
